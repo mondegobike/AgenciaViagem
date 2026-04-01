@@ -28,7 +28,7 @@ const App = () => {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center gap-2">
               <Plane className="text-blue-600" size={28} />
-              <span className="text-xl font-black tracking-tighter text-blue-900">VIAJAR+</span>
+              <span className="text-xl font-black tracking-tighter text-blue-900">Latitude C</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wider">
