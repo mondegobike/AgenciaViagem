@@ -6,7 +6,7 @@ const App = () => {
 
   // Mock Data - No futuro, estes dados virão do teu Admin/Base de Dados
   const agencyInfo = {
-    name: "Viajar+ Agência",
+    name: "Latitude C | Agência de Viagens",
     tagline: "O mundo espera por si.",
     description: "Experiências personalizadas e destinos inesquecíveis desenhados à sua medida por especialistas com mais de 10 anos de mercado.",
     phone: "+351 912 345 678",
