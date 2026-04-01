@@ -79,4 +79,102 @@ function App() {
       {page === 'home' && (
         <header className="relative h-[80vh] flex items-center justify-center text-center px-6">
           <div className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.
+            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2000" className="w-full h-full object-cover brightness-[0.7]" alt="Hero" />
+          </div>
+          <div className="relative z-10 max-w-4xl animate-in fade-in duration-1000">
+            <h1 className="text-4xl md:text-8xl font-light text-[#FDFCF8] mb-6 tracking-tight leading-tight">Onde a alma <br /><span className="font-bold italic">se encontra.</span></h1>
+            <button onClick={() => setPage('destinos')} className="bg-[#FDFCF8] text-[#1A2F23] px-10 py-4 rounded-sm font-bold text-[10px] uppercase tracking-widest hover:bg-[#1A2F23] hover:text-[#FDFCF8] transition-all">Explorar Destinos</button>
+          </div>
+        </header>
+      )}
+
+      {/* PÁGINA DESTINOS */}
+      {page === 'destinos' && (
+        <section className="py-16 md:py-24 px-6 max-w-7xl mx-auto animate-in slide-in-from-bottom-4">
+          <h2 className="text-4xl md:text-5xl font-light mb-12 tracking-tighter text-center">Roteiros de <span className="font-bold italic text-stone-400">Autor</span></h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            {[
+              { title: 'Safari Privado Namíbia', price: 'Desde 4.500€', img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1000' },
+              { title: 'Expedição Ártica Islândia', price: 'Desde 3.200€', img: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1000' }
+            ].map((d, i) => (
+              <div key={i} className="group cursor-pointer space-y-4">
+                <div className="relative h-64 md:h-96 overflow-hidden rounded-sm">
+                  <img src={d.img} className="w-full h-full object-cover" alt={d.title} />
+                  <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 text-[8px] font-bold uppercase tracking-widest">{d.price}</div>
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tighter">{d.title}</h3>
+                <button onClick={() => setPage('contacto')} className="text-[10px] font-bold uppercase tracking-widest border-b border-[#1A2F23] pb-1">Ver Detalhes</button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* PÁGINA QUEM SOMOS */}
+      {page === 'quem-somos' && (
+        <section className="py-16 md:py-24 px-6 max-w-4xl mx-auto text-center space-y-10 animate-in fade-in">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tighter">A sua <span className="font-bold italic">Bússola Personalizada.</span></h2>
+          <div className="space-y-6 text-lg text-stone-600 font-light leading-relaxed">
+            <p>Na Latitude C, acreditamos que o luxo não é o preço, mas a exclusividade da experiência. Desenhamos viagens para quem quer fugir do óbvio.</p>
+          </div>
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200" className="rounded-sm shadow-xl grayscale" alt="Team" />
+        </section>
+      )}
+
+      {/* PÁGINA ORÇAMENTO (MOBILE OPTIMIZED) */}
+      {page === 'contacto' && (
+        <section className="py-12 md:py-20 px-6 max-w-5xl mx-auto animate-in slide-in-from-bottom-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-light tracking-tighter mb-4">Pedir <span className="font-bold italic text-stone-400">Orçamento</span></h2>
+          </div>
+
+          <form onSubmit={handleFormSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 md:p-12 shadow-2xl border border-stone-100">
+            <div className="space-y-4 md:col-span-2 border-b border-stone-100 pb-6">
+                <input type="text" placeholder="Nome Completo" className="w-full border-b border-stone-200 py-3 outline-none focus:border-[#1A2F23]" onChange={(e) => setFormData({...formData, nome: e.target.value})} required />
+                <input type="email" placeholder="Email" className="w-full border-b border-stone-200 py-3 outline-none focus:border-[#1A2F23]" onChange={(e) => setFormData({...formData, email: e.target.value})} required />
+            </div>
+
+            <div className="space-y-6">
+              <input type="text" placeholder="Destino de Sonho" className="w-full border-b border-stone-200 py-3 outline-none focus:border-[#1A2F23]" onChange={(e) => setFormData({...formData, destino: e.target.value})} required />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col"><label className="text-[8px] uppercase font-bold text-stone-400">Ida</label><input type="date" className="border-b py-2 text-xs outline-none" onChange={(e) => setFormData({...formData, inicio: e.target.value})} /></div>
+                <div className="flex flex-col"><label className="text-[8px] uppercase font-bold text-stone-400">Volta</label><input type="date" className="border-b py-2 text-xs outline-none" onChange={(e) => setFormData({...formData, fim: e.target.value})} /></div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <select className="border-b py-3 text-xs outline-none bg-transparent" onChange={(e) => setFormData({...formData, adultos: e.target.value})}><option>Adultos</option><option>1</option><option>2</option><option>3+</option></select>
+                <select className="border-b py-3 text-xs outline-none bg-transparent" onChange={(e) => setFormData({...formData, criancas: e.target.value})}><option>Crianças</option><option>0</option><option>1</option><option>2+</option></select>
+              </div>
+              <select className="w-full border-b py-3 text-xs outline-none bg-transparent font-bold" onChange={(e) => setFormData({...formData, budget: e.target.value})}>
+                <option>Orçamento por pessoa</option>
+                <option>1.500€ - 3.000€</option>
+                <option>3.000€ - 5.000€</option>
+                <option>+ 5.000€</option>
+              </select>
+            </div>
+
+            <div className="md:col-span-2">
+              <textarea placeholder="Mensagem e pedidos especiais..." className="w-full border border-stone-100 p-4 h-32 outline-none focus:border-[#1A2F23] text-sm" onChange={(e) => setFormData({...formData, mensagem: e.target.value})}></textarea>
+              <button type="submit" className="w-full bg-[#1A2F23] text-[#FDFCF8] py-5 mt-6 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-4">
+                <Send size={14}/> Enviar Briefing
+              </button>
+            </div>
+          </form>
+        </section>
+      )}
+
+      {/* FOOTER */}
+      <footer className="py-16 border-t border-stone-200 mt-20 text-center space-y-6 bg-stone-50/50">
+        <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex flex-col items-center gap-2 text-[#1A2F23]">
+          <Instagram size={24} />
+          <span className="text-[8px] font-bold uppercase tracking-[0.3em]">Instagram @latitudec_viagens</span>
+        </a>
+        <p className="text-[9px] uppercase tracking-[0.4em] text-stone-400">© 2026 Latitude C • Agência de Viagens</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;
