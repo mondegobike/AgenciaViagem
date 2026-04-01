@@ -147,7 +147,7 @@ const App = () => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="bg-blue-800 p-3 rounded-full"><Instagram size={20} /></div>
-                <span>@viajarmais_agencia</span>
+                <span>@latitudec_viagens</span>
               </div>
             </div>
           </div>
