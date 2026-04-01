@@ -174,6 +174,18 @@ function App() {
                   ))}
                 </div>
               </div>
+              <div className="bg-white p-10 space-y-6 shadow-xl border border-stone-100">
+                <h4 className="font-bold uppercase text-xs tracking-widest text-center text-[#103D3B]">Fale Connosco</h4>
+                <p className="text-xs text-stone-500 text-center leading-relaxed font-light">Cada roteiro Latitude C é único. Clique abaixo para personalizar esta viagem de acordo com as suas preferências e orçamento.</p>
+                {/* BOTÃO AZUL MAR */}
+                <button 
+                  onClick={() => irParaOrcamento(selectedDestino.title)}
+                  className="w-full bg-[#103D3B] text-[#F7F6F1] py-5 font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-black transition-all flex items-center justify-center gap-2 shadow-md"
+                >
+                  Quero mais informações <ChevronRight size={14}/>
+                </button>
+              </div>
+            </div>
           </section>
         </div>
       )}
