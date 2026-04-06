@@ -1,13 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Reservas from './pages/Reservas';
-
-// Uma página de Dashboard rápida só para exemplo
-const Dashboard = () => (
-  <div className="text-center py-20">
-    <h2 className="text-4xl font-light italic text-[#103D3B]">Bem-vindo à Latitude C</h2>
-  </div>
-);
+import Dashboard from './pages/Dashboard'; // <--- ADICIONA ESTE IMPORT
 
 function App() {
   return (
@@ -16,7 +10,7 @@ function App() {
         <Sidebar />
         <main className="flex-1 ml-64 p-12">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} /> {/* <--- AGORA USA O COMPONENTE REAL */}
             <Route path="/reservas" element={<Reservas />} />
           </Routes>
         </main>
