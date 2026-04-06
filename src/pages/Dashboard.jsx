@@ -8,7 +8,7 @@ export default function Dashboard() {
     <div className="animate-in fade-in duration-700">
       <header className="mb-10">
         <h1 className="text-3xl font-bold" style={{ color: azulMar }}>Painel Geral</h1>
-        <p className="text-stone-400 text-xs uppercase tracking-widest mt-1">Bem-vindo à Gestão Latitude C</p>
+        <p className="text-stone-400 text-[10px] uppercase tracking-widest mt-1">Bem-vindo à Gestão Latitude C</p>
       </header>
 
       {/* CARDS DE RESUMO RÁPIDO */}
@@ -40,12 +40,11 @@ export default function Dashboard() {
       </div>
 
       {/* MENSAGEM CENTRAL */}
-      <div className="bg-[#103D3B] p-12 rounded-[3rem] text-white overflow-hidden relative shadow-2xl shadow-[#103D3B]/20">
+      <div className="p-12 rounded-[3rem] text-white overflow-hidden relative shadow-2xl shadow-[#103D3B]/20" style={{ backgroundColor: azulMar }}>
         <div className="relative z-10">
           <h2 className="text-4xl font-light italic mb-2">O teu sistema está online.</h2>
           <p className="opacity-60 text-sm tracking-wide">Todos os serviços da API no Render e Base de Dados Supabase estão operacionais.</p>
         </div>
-        {/* Decoração abstrata no fundo */}
         <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
       </div>
     </div>
